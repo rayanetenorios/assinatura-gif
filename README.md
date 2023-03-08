@@ -1,0 +1,1 @@
+##Gerador de Assinatura de Email Gif
