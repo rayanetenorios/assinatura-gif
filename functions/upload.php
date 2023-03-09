@@ -32,8 +32,16 @@ $base = "http://localhost/assinatura-gif/";
 
 $caminho_imagem = $base."assets/img/uploads/" . $imagem_nome;
 
+$conteudo = [
+    'nome' => $nome,
+    'cargo' => $cargo,
+    'email' => $email,
+    'telefone' => $telefone,
+];
+
 $fundo1 = $base."assets/img/fundo/FUNDO1.png";
 $img1 = new GerarImagem();
+$img1->gerar($fundo1, $conteudo);
 
 $fundo2 = $base."assets/img/fundo/FUNDO2.png";
 $fundo3 = $base."assets/img/fundo/FUNDO3.png";
