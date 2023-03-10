@@ -51,11 +51,6 @@ class GerarImagem {
         return $this;
     }
 
-    public function salvar($filename) 
-    {
-        return file_put_contents($filename, $this->img);
-    }
-
     /**
 	 * Clean-up the current object (also used by the ctor.)
 	 */
