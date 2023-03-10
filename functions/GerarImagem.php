@@ -29,9 +29,9 @@ class GerarImagem {
         // Escreve na imagem
         imagettftext($i, 25, 0, 455, 80, $verde, $fonte_semibold, $conteudo['nome']);
         imagettftext($i, 14, 0, 455, 108, $verde, $fonte_thin, $conteudo['cargo']);
-        imagettftext($i, 12, 0, 493, 159, $branco, $fonte_semibold, $conteudo['telefone']);
-        imagettftext($i, 12, 0, 493, 189, $branco, $fonte_semibold, $conteudo['email']);
-        imagettftext($i, 12, 0, 493, 220, $branco, $fonte_semibold, 'inteligenciaedu.com.br');
+        imagettftext($i, 10, 0, 493, 159, $branco, $fonte_semibold, $conteudo['telefone']);
+        imagettftext($i, 10, 0, 493, 189, $branco, $fonte_semibold, $conteudo['email']);
+        imagettftext($i, 10, 0, 493, 220, $branco, $fonte_semibold, 'inteligenciaedu.com.br');
 
         $foto = $conteudo['foto'];
         $img_foto = imagecreatefrompng($foto);
@@ -46,7 +46,7 @@ class GerarImagem {
         imagecopyresampled($result, $i, 0, 0, 0, 0, $width, $height, $width, $height);
         imagecopyresampled($result, $img_foto, 262, 34, 0, 0, $fwidth, $fheight, $fwidth, $fheight);
 
-        $this->img = imagepng($result, "../assets/img/fundo/temp/".$titulo);
+        $this->img = imagepng($result, "../assets/img/temp/".$titulo);
 
         return $this;
     }

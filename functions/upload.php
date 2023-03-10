@@ -26,11 +26,11 @@ $imagem = base64_decode($imagem);
 $imagem_nome = time() . '.png';
 
 // Realizar o upload da imagem
-file_put_contents('../assets/img/uploads/' . $imagem_nome, $imagem);
+file_put_contents('../assets/img/temp/' . $imagem_nome, $imagem);
 
 $base = "http://localhost/assinatura-gif/";
 
-$caminho_imagem = $base."assets/img/uploads/" . $imagem_nome;
+$caminho_imagem = $base."assets/img/temp/" . $imagem_nome;
 
 $conteudo = [
     'nome' => $nome,
@@ -57,17 +57,16 @@ $img4 = new GerarImagem();
 $img4->gerar($fundo4, $conteudo, 'assinatura4.png');
 
 $frames = array(
-    $base."assets/img/fundo/temp/assinatura1.png", 
-    $base."assets/img/fundo/temp/assinatura2.png", 
-    $base."assets/img/fundo/temp/assinatura3.png", 
-    $base."assets/img/fundo/temp/assinatura4.png"
+    $base."assets/img/temp/assinatura1.png", 
+    $base."assets/img/temp/assinatura2.png", 
+    $base."assets/img/temp/assinatura3.png", 
+    $base."assets/img/temp/assinatura4.png"
 );
 
 $anim = new AnimGif();
 $anim->create($frames, array(100, 100)); // first 3s, then 5s for all the others
 $anim->save("../assets/img/uploads/assinatura.gif");
 
-$gif = $base . "assets/img/uploads/assinatura.gif";
-
-return $gif;
+$mascara = "../assets/img/temp/*";
+array_map( "unlink", glob( $mascara) );
 
