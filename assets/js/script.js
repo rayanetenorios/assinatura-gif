@@ -8,8 +8,8 @@ var redimensionar = $('#preview').croppie({
 
     // O recipiente interno do coppie. A parte visível da imagem
     viewport: {
-        width: 255,
-        height: 312,
+        width: 172,
+        height: 210,
         type: 'square'
     },
 

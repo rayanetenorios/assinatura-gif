@@ -27,11 +27,11 @@ class GerarImagem {
         $fonte_thin = "../assets/fonts/Poppins-Light.ttf"; # Fonte que será utilizada
 
         // Escreve na imagem
-        imagettftext($i, 35, 0, 670, 105, $verde, $fonte_semibold, $conteudo['nome']);
-        imagettftext($i, 22, 0, 670, 150, $verde, $fonte_thin, $conteudo['cargo']);
-        imagettftext($i, 18, 0, 738, 235, $branco, $fonte_semibold, $conteudo['telefone']);
-        imagettftext($i, 18, 0, 738, 280, $branco, $fonte_semibold, $conteudo['email']);
-        imagettftext($i, 18, 0, 738, 326, $branco, $fonte_semibold, 'inteligenciaedu.com.br');
+        imagettftext($i, 25, 0, 455, 80, $verde, $fonte_semibold, $conteudo['nome']);
+        imagettftext($i, 14, 0, 455, 108, $verde, $fonte_thin, $conteudo['cargo']);
+        imagettftext($i, 12, 0, 493, 159, $branco, $fonte_semibold, $conteudo['telefone']);
+        imagettftext($i, 12, 0, 493, 189, $branco, $fonte_semibold, $conteudo['email']);
+        imagettftext($i, 12, 0, 493, 220, $branco, $fonte_semibold, 'inteligenciaedu.com.br');
 
         $foto = $conteudo['foto'];
         $img_foto = imagecreatefrompng($foto);
@@ -44,7 +44,7 @@ class GerarImagem {
         $result = imagecreatetruecolor($width, $height);
         
         imagecopyresampled($result, $i, 0, 0, 0, 0, $width, $height, $width, $height);
-        imagecopyresampled($result, $img_foto, 388, 50, 0, 0, $fwidth, $fheight, $fwidth, $fheight);
+        imagecopyresampled($result, $img_foto, 262, 34, 0, 0, $fwidth, $fheight, $fwidth, $fheight);
 
         $this->img = imagepng($result, "../assets/img/fundo/temp/".$titulo);
 
