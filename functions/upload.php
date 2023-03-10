@@ -37,22 +37,34 @@ $conteudo = [
     'cargo' => $cargo,
     'email' => $email,
     'telefone' => $telefone,
+    'foto' => $caminho_imagem,
 ];
 
 $fundo1 = $base."assets/img/fundo/FUNDO1.png";
 $img1 = new GerarImagem();
-$img1->gerar($fundo1, $conteudo);
+$img1->gerar($fundo1, $conteudo, 'assinatura1.png');
 
 $fundo2 = $base."assets/img/fundo/FUNDO2.png";
+$img2 = new GerarImagem();
+$img2->gerar($fundo2, $conteudo, 'assinatura2.png');
+
 $fundo3 = $base."assets/img/fundo/FUNDO3.png";
+$img3 = new GerarImagem();
+$img3->gerar($fundo3, $conteudo, 'assinatura3.png');
+
 $fundo4 = $base."assets/img/fundo/FUNDO4.png";
+$img4 = new GerarImagem();
+$img4->gerar($fundo4, $conteudo, 'assinatura4.png');
 
 $frames = array(
-    $fundo1, $fundo2, $fundo3, $fundo4
+    $base."assets/img/fundo/temp/assinatura1.png", 
+    $base."assets/img/fundo/temp/assinatura2.png", 
+    $base."assets/img/fundo/temp/assinatura3.png", 
+    $base."assets/img/fundo/temp/assinatura4.png"
 );
 
 $anim = new AnimGif();
-$anim->create($frames, array(200, 200)); // first 3s, then 5s for all the others
+$anim->create($frames, array(100, 100)); // first 3s, then 5s for all the others
 $anim->save("../assets/img/uploads/assinatura.gif");
 
 $gif = $base . "assets/img/uploads/assinatura.gif";
