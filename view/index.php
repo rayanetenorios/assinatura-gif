@@ -1,11 +1,13 @@
 <?php
     include_once('./layout/AppTop.php');
+
+    $nome_img = time();
 ?>
 
 <main class="conteudo container">
     
-    <div class="formulario container p-2">
-        <h4>Insira os dados abaixo para gerar a assinatura</h4>
+    <div class="formulario container">
+        <h5 class="mb-3">Insira os dados abaixo para gerar a assinatura</h5>
         <form action="" method="post" name="form1" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nome">Nome</label>
@@ -32,6 +34,7 @@
                 <input type="file" class="form-control" id="imagem" name="imagem"
                     value="<?php if(isset($_POST['imagem'])) {echo $_POST['imagem']; } ?>">
             </div>
+                <input type="hidden" name="arquivo" id="arquivo" value="<?php echo $nome_img; ?>">
         </form>
         <button type="buttom" id="gerar_assinatura" class="btn btn-primary">Gerar assinatura</button>
     </div>

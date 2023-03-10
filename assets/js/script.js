@@ -49,6 +49,7 @@ $('#gerar_assinatura').on('click', function () {
         var cargo = document.getElementById("cargo").value;
         var email = document.getElementById("email").value;
         var telefone = document.getElementById("telefone").value;
+        var arquivo = document.getElementById("arquivo").value;
 
         // Enviar os dados para um arquivo PHP
         $.ajax({
@@ -59,11 +60,12 @@ $('#gerar_assinatura').on('click', function () {
                 "nome": nome,
                 "cargo": cargo,
                 "email": email,
-                "telefone": telefone
+                "telefone": telefone,
+                "arquivo": arquivo,
             },
             success: function(){
                 alert('Assinatura criada com sucesso!')
-                window.location.href = "http://localhost/assinatura-gif/view/assinatura.php";
+                window.location.href = "http://localhost/assinatura-gif/view/assinatura.php?a=" + arquivo;
             }
         });
     });

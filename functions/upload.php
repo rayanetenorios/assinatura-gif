@@ -14,6 +14,7 @@ $nome = filter_input(INPUT_POST, 'nome', FILTER_DEFAULT);
 $cargo = filter_input(INPUT_POST, 'cargo', FILTER_DEFAULT);
 $telefone = filter_input(INPUT_POST, 'telefone', FILTER_DEFAULT);
 $email = filter_input(INPUT_POST, 'email', FILTER_DEFAULT);
+$nome_img = filter_input(INPUT_POST, 'arquivo', FILTER_DEFAULT);
 
 // Separa as informações da imagem base64 pelo ";"
 list($type, $imagem) = explode(';', $imagem);
@@ -23,7 +24,8 @@ list(, $imagem) = explode(',', $imagem);
 $imagem = base64_decode($imagem);
 
 // Atribuir a extensão da imagem PNG
-$imagem_nome = time() . '.png';
+
+$imagem_nome = $nome_img . '.png';
 
 // Realizar o upload da imagem
 file_put_contents('../assets/img/temp/' . $imagem_nome, $imagem);
@@ -65,7 +67,7 @@ $frames = array(
 
 $anim = new AnimGif();
 $anim->create($frames, array(100, 100)); // first 3s, then 5s for all the others
-$anim->save("../assets/img/uploads/assinatura.gif");
+$anim->save("../assets/img/uploads/".$nome_img.".gif");
 
 $mascara = "../assets/img/temp/*";
 array_map( "unlink", glob( $mascara) );

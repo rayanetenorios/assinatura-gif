@@ -1,7 +1,11 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 72px 1fr 40px;
+    grid-template-rows: 100px 1fr 40px;
     grid-template-areas: 
         "header"
         "main"
@@ -15,6 +19,10 @@ header {
     background-size: 300%, 300%;
     color: white;
     animation: colors 12s ease infinite;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
@@ -39,21 +47,30 @@ footer {
 }
 
 .conteudo {
-    display: grid;
-    grid-template-columns: 35% 65%;
-    grid-template-areas: 
-        "formulario exibicao";
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .formulario {
-    grid-area: formulario;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 30px;
+    background-color: rgb(248, 248, 248);
+    border-radius: 30px;
+}
+
+.formulario form {
+    width: 100%;
 }
 
 .exibicao {
-    grid-area: exibicao;
+    width: 100%;    
 }
 
-#preview, .formulario {
+#preview {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -70,4 +87,29 @@ footer {
 .assinatura_img {
     width: 100%;
     margin-bottom: 20px;
+}
+
+.logo img {
+    width: 100px;
+    margin-right: 30px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.copy {
+    font-size: small;
+    color: rgb(184, 184, 184);
+}
+
+.copy a, .copy a:visited {
+    color: rgb(184, 184, 184);
 }
