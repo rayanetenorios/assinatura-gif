@@ -24,15 +24,14 @@ list(, $imagem) = explode(',', $imagem);
 $imagem = base64_decode($imagem);
 
 // Atribuir a extensão da imagem PNG
-
-$imagem_nome = $nome_img . '.png';
+$imagem_nome = $nome_img . '.PNG';
 
 // Realizar o upload da imagem
 file_put_contents('../assets/img/temp/' . $imagem_nome, $imagem);
 
 $base = "http://localhost/assinatura-gif/";
 
-$caminho_imagem = $base."assets/img/temp/" . $imagem_nome;
+$caminho_imagem = "../assets/img/temp/" . $imagem_nome;
 
 $conteudo = [
     'nome' => $nome,
@@ -42,32 +41,32 @@ $conteudo = [
     'foto' => $caminho_imagem,
 ];
 
-$fundo1 = $base."assets/img/fundo/FUNDO1.png";
+$fundo1 = "../assets/img/fundo/FUNDO1.PNG";
 $img1 = new GerarImagem();
-$img1->gerar($fundo1, $conteudo, 'assinatura1.png');
+$img1->gerar($fundo1, $conteudo, 'assinatura1.PNG');
 
-$fundo2 = $base."assets/img/fundo/FUNDO2.png";
+$fundo2 = "../assets/img/fundo/FUNDO2.PNG";
 $img2 = new GerarImagem();
-$img2->gerar($fundo2, $conteudo, 'assinatura2.png');
+$img2->gerar($fundo2, $conteudo, 'assinatura2.PNG');
 
-$fundo3 = $base."assets/img/fundo/FUNDO3.png";
+$fundo3 = "../assets/img/fundo/FUNDO3.PNG";
 $img3 = new GerarImagem();
-$img3->gerar($fundo3, $conteudo, 'assinatura3.png');
+$img3->gerar($fundo3, $conteudo, 'assinatura3.PNG');
 
-$fundo4 = $base."assets/img/fundo/FUNDO4.png";
+$fundo4 = "../assets/img/fundo/FUNDO4.PNG";
 $img4 = new GerarImagem();
-$img4->gerar($fundo4, $conteudo, 'assinatura4.png');
+$img4->gerar($fundo4, $conteudo, 'assinatura4.PNG');
 
-$frames = array(
-    $base."assets/img/temp/assinatura1.png", 
-    $base."assets/img/temp/assinatura2.png", 
-    $base."assets/img/temp/assinatura3.png", 
-    $base."assets/img/temp/assinatura4.png"
-);
+$frames = [
+    "../assets/img/temp/assinatura1.PNG", 
+    "../assets/img/temp/assinatura2.PNG", 
+    "../assets/img/temp/assinatura3.PNG", 
+    "../assets/img/temp/assinatura4.PNG"
+];
 
 $anim = new AnimGif();
-$anim->create($frames, array(100, 100)); // first 3s, then 5s for all the others
-$anim->save("../assets/img/uploads/".$nome_img.".gif");
+$anim->create( $frames, [100, 100] );
+$anim->save( "../assets/img/uploads/".$nome_img.".gif" );
 
 $mascara = "../assets/img/temp/*";
 array_map( "unlink", glob( $mascara) );

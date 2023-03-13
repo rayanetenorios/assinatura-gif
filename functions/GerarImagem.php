@@ -46,9 +46,8 @@ class GerarImagem {
         imagecopyresampled($result, $i, 0, 0, 0, 0, $width, $height, $width, $height);
         imagecopyresampled($result, $img_foto, 262, 34, 0, 0, $fwidth, $fheight, $fwidth, $fheight);
 
-        $this->img = imagepng($result, "../assets/img/temp/".$titulo);
-
-        return $this;
+        header("Content-type: image/png");
+        imagepng( $result, "../assets/img/temp/".$titulo );
     }
 
     /**

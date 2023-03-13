@@ -1,7 +1,7 @@
 
     <footer>
             <div class="container p-2">
-                <span class="copy">Desenvolvido por <a href="https://grifopropaganda.com.br" target="_blank">Grifo Propaganda</a>, 2023. Todos os direitos reservados.</span>
+                <span class="copy">Desenvolvido por <a href="https://eitanos.com.br" target="_blank">Agência Eita Nós</a>, 2023. Todos os direitos reservados.</span>
             </div>
     </footer>
     
